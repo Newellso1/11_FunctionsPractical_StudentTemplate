@@ -1,14 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <title>Task 3</title>
-  </head>
-  <body>    
-    <script>
 
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
+  <title>Task 3</title>
+</head>
+
+<body>
+  <h1>Calculus</h1>
+  <h2>Number 1</h2>
+  <select name="Number1" id="num1">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="7">8</option>
+    <option value="9">9</option>
+  </select>
+  <h2>Number 2</h2>
+  <select name="Number2" id="num2">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="7">8</option>
+    <option value="9">9</option>
+  </select>
+  <h2>Operator</h2>
+  <select name="Operator" id="op">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">x</option>
+    <option value="/">÷</option>
+    <option value="%">%</option>
+  </select>
+  <br>
+  <button id="outputButton" style="margin-top: 30px;">Output</button>
+  <h3 id="answer"></h3>
+
+
+  <script>
+    // input variables
+
+    let num1Select = document.getElementById('num1');
+    let num2Select = document.getElementById('num2');
+    let operatorSelect = document.getElementById('op');
+    const outputButton = document.getElementById('outputButton');
+
+    outputButton.addEventListener('click', () => {
+      let num1 = parseInt(num1Select.value);
+      let num2 = parseInt(num2Select.value);
+      let operator = (operatorSelect.value);
+      let answer = document.getElementById('answer');
+
+      let message = '';
+      let result ='';
+
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          message = `${num1} + ${num2} = ${result}`
+         answer.innerHTML = message;
+          break;
+        case '-':
+          result = num1 - num2;
+          message = `${num1} - ${num2} = ${result}`
+          answer.innerHTML = message;
+          break;
+        case '*':
+          result = num1 * num2;
+          message = `${num1} x ${num2} = ${result}`
+          answer.innerHTML = message;
+          break;
+        case '/':
+          result = num1 / num2;
+          message = `${num1} ÷ ${num2} = ${result}`
+          answer.innerHTML = message;
+          break;
+        case '%':
+          result = num1 % num2;
+          message = `${num1} % ${num2} = ${result}`
+          answer.innerHTML = message;
+          break;
+      }
+
+    
+
+
+    })
+
+
+
+  </script>
+</body>
+
 </html>
+
+<!-- We need to create a function capable of using the addition, subtraction, multiply, divider or modulus operator on 2 numbers provided.
+
+Create a function named calculator
+Add 3 arguments for “number1”, “number2” and “operator”
+Use a switch statement to determine which operator to use
+Add the math code for each operator in the case statement to return the value
+
+Console.log a message “{number1} {operator} {number2} = {value}” -->

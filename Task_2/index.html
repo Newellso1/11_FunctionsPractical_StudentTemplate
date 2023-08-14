@@ -1,14 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <title>Task 2</title>
-  </head>
-  <body>    
-    <script>
 
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#">
+  <title>Task 2</title>
+</head>
+
+<body>
+
+  <h2>What are you having?</h2>
+
+  <button id="cola">Cola</button>
+  <button id="lemon">Lemon</button>
+  <button id="orange">Orange</button>
+
+  <h2>What size?</h2>
+
+  <button id="small">Small</button>
+  <button id="medium">Medium</button>
+  <button id="large">Large</button>
+  <div>
+    <h2>You are having...</h2>
+    <button id="orderButton">My Order</button>
+    <h3 id="drinksOrder"></h3>
+  </div>
+  <script>
+
+
+    // Order Variables
+    let userDrink;
+    let userSize;
+
+    // Drink buttons
+    const colaButton = document.getElementById('cola').addEventListener('click', function () {
+      userDrink = 'cola';
+    });
+    const lemonButton = document.getElementById('lemon').addEventListener('click', function () {
+      userDrink = 'lemon';
+    });
+    const orangeButton = document.getElementById('orange').addEventListener('click', function () {
+      userDrink = 'orange';
+    });;
+
+    // Size buttons
+    const smallButton = document.getElementById('small').addEventListener('click', function () {
+      userSize = 'small'
+    });
+    const mediumButton = document.getElementById('medium').addEventListener('click', function () {
+      userSize = 'medium'
+    });
+    const largeButton = document.getElementById('large').addEventListener('click', function () {
+      userSize = 'large'
+    });
+    // User Order
+
+    let userOrder = document.getElementById('drinksOrder')
+
+
+
+    //  Order Function
+
+    let orderText = `You have ordered a `;
+
+    function order(userDrink, userSize) {
+
+      switch (userSize) {
+        case 'small':
+          orderText += `${userSize}`;
+          break;
+        case 'medium':
+          orderText += `${userSize}`;
+          break;
+        case 'large':
+          orderText += `${userSize}`
+          break;
+        default:
+          orderText = `Not clicked owt mate`
+          break;
+      }
+
+      switch (userDrink) {
+        case 'cola':
+          orderText += ` ${userDrink}`
+          break;
+        case 'lemon':
+          orderText += ` ${userDrink}`
+          break;
+        case 'orange':
+          orderText += ` ${userDrink}`
+          break;
+        default:
+          orderText = `Not clicked owt mate`
+          break;
+      }
+
+
+    }
+
+    // Order button
+    const orderButton = document.getElementById('orderButton').addEventListener('click', function () {
+      order(userDrink, userSize);
+      userOrder.textContent = orderText;
+      userDrink = '';
+      userSize = '';
+      orderText = `You have ordered a `;
+    });
+
+
+  </script>
+
+
+</body>
+
 </html>
+
+<!-- Task 2 - Switch Statement
+
+Customers can order 3 different types of drink and also select 3 sizes.
+Cola, Lemonade and  Orangeade
+Small, Medium and Large
+The button they press have the values “cola”,”lemon”,”orange”
+Create a function that will output the message “You have ordered a {size} of {softDrinkLabel}”
+Create a function named drinkOrder
+Add 2 arguments for “size” and “drink”
+
+Use a switch statement to determine where the functional code needs to be written
+
+Create a message in each case statement to be returned.
+
+Console.log the returned message -->
